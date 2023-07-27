@@ -2,19 +2,31 @@ package ru.otus.basicarchitecture
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import ru.otus.basicarchitecture.databinding.ActivityMainBinding
+import ru.otus.contextMainAct
 
 class MainActivity : AppCompatActivity() {
 
-   // private lateinit var binding: ActivityMainBinding      //для лучшей йправляемости вьюх
+    lateinit var binding: ActivityMainBinding      //для лучшей йправляемости вьюх
+
+    lateinit var navController: NavController      //переменная типа нав контроллер
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-       setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.place_fragment1, Fragment1()).commit()
+        navController = Navigation.findNavController(this, R.id.nav_host)   //инициализация нав графа
+
+        contextMainAct = this                                                      //записываем контекст этого активити
     }
+
 }
+
