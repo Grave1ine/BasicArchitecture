@@ -2,14 +2,12 @@ package ru.otus.basicarchitecture
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import ru.otus.basicarchitecture.databinding.Fragment1Binding
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import ru.otus.basicarchitecture.databinding.Fragment2Binding
-import ru.otus.contextMainAct
 
 
 class Fragment2 : Fragment() {
@@ -28,7 +26,7 @@ class Fragment2 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.goToFR3.setOnClickListener{
-            contextMainAct.navController.navigate(R.id.action_fragment2_to_fragment3)
+            findNavController().navigate(R.id.action_fragment2_to_fragment3)
         }
     }
 }
