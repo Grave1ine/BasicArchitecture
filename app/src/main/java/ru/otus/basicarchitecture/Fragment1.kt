@@ -20,7 +20,7 @@ class Fragment1 : Fragment() {
     /**
      * Удобная функция, чтобы не проверять каждый раз на нулл
      */
-    private inline fun <T> withBinding(block: Fragment1Binding.() -> T) {
+    private inline fun withBinding(block: Fragment1Binding.() -> Unit) {
         binding?.block()
     }
 
