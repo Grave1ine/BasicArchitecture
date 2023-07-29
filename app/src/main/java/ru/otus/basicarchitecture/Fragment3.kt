@@ -1,12 +1,12 @@
 package ru.otus.basicarchitecture
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import ru.otus.basicarchitecture.databinding.Fragment3Binding
-import ru.otus.contextMainAct
 
 class Fragment3 : Fragment() {
 
@@ -23,7 +23,7 @@ class Fragment3 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.goToFR4.setOnClickListener{
-            contextMainAct.navController.navigate(R.id.action_fragment3_to_fragment4)
+            findNavController().navigate(R.id.action_fragment3_to_fragment4)
         }
 
 

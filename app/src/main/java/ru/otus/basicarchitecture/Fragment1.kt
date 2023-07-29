@@ -1,52 +1,74 @@
 package ru.otus.basicarchitecture
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
-import androidx.fragment.app.activityViewModels
+import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import ru.otus.basicarchitecture.databinding.Fragment1Binding
 import ru.otus.basicarchitecture.viewModel.viewModelFR1
 
 
 class Fragment1 : Fragment() {
 
-    private lateinit var binding: Fragment1Binding
+    private var binding: Fragment1Binding? = null
 
-     private val dataModel: viewModelFR1 by activityViewModels()  //activityViewModels для фрагментов
+    /**
+     * Удобная функция, чтобы не проверять каждый раз на нулл
+     */
+    private inline fun withBinding(block: Fragment1Binding.() -> Unit) {
+        binding?.block()
+    }
+
+    private val dataModel: viewModelFR1 by viewModels() // Время жизни модели - фрагмент!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         binding = Fragment1Binding.inflate(layoutInflater, container, false)
-        return binding.root
+        return binding!!.root
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onDestroyView() {
+        // Смотри сюда: https://developer.android.com/topic/libraries/view-binding#fragments
+        super.onDestroyView()
+        binding = null
+    }
+
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dataModel.viewState.observe(this) {state ->
-            binding.goToFR2.isClickable = state.dataOK  //должна блокировать или не блокировать кнопку
-            binding.name.text ?: state.name    //есть ли в этом смысл? наверно нет т.к editText
+        withBinding {
+            dataModel.viewState.observe(viewLifecycleOwner) { state ->
+                goToFR2.isEnabled = state.dataOK  //должна блокировать или не блокировать кнопку
+                name.setTextKeepState(state.name.orEmpty())          // есть ли в этом смысл? наверно нет т.к editText
+                surName.setTextKeepState(state.surName.orEmpty())    // Ответ: и да, и нет. С точки зрения единого источника правды (модели) есть.
+                data.setTextKeepState(state.data.orEmpty())          // Кроме того, при возврате на этот экран, мы заполним его данными из визард-кеш
+            }
+
+            goToFR2.setOnClickListener{
+                // ОЧЕНЬ не рекомендуется прокидывать контекст активити в модель
+                // Помним, что модель живет ДОЛЬШЕ активити.
+                findNavController().navigate(R.id.action_fragment1_to_fragment2)
+            }
+
+            name.doOnTextChanged { text, _, _, _ ->
+                // В модель записываем каждое изменение текста
+                dataModel.setName(text.toString())  // запись имени в модель?
+            }
+            surName.doOnTextChanged { text, _, _, _ ->
+                dataModel.setSurname(text.toString())
+            }
+            data.doOnTextChanged { text, _, _, _ ->
+                dataModel.setDate(text.toString())
+            }
         }
-
-        binding.goToFR2.setOnClickListener{
-            //contextMainAct.navController.navigate(R.id.action_fragment1_to_fragment2)
-            dataModel.openFrag(R.id.action_fragment1_to_fragment2)
-        }
-
-        dataModel.setName(binding.name.text.toString())  // запись имени в модель?
-        dataModel.setSurname(binding.surName.text.toString())
-        dataModel.setData(binding.data.text.toString())
-
-
     }
 
 
