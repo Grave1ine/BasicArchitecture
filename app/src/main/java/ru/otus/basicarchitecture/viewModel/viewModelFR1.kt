@@ -1,5 +1,7 @@
 package ru.otus.basicarchitecture.viewModel
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,7 +26,7 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
     // Не дает изменить вью снаружи. Просто регулирует открытость/закрытость.
     // Меняем состояние только изнутри модели
     // Лишние перерисовки блокируем distinctUntilChanged
-    val viewState: LiveData<viewStateFR1> get() = _stateFR1.distinctUntilChanged()
+    val viewState: LiveData<viewStateFR1> get() = _stateFR1.distinctUntilChanged()  //в фрагментах/активити использовать это поле для обращения к состоянию
 
     // Промежуточные данные, поскольку в домене нам нужна только валидная дата
     // В остальных случаях - пишем сразу в кеш
@@ -34,6 +36,7 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
     private val dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy")
 
     // Преобразуем строку в дату. Нулл - если не удалось
+
     fun getValidDate(): LocalDate? = try {
         LocalDate.parse(dateString, dateFormat)
     } catch (e: Throwable) {
@@ -47,7 +50,7 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
         return when {
             null == validDate -> "Неверная или пустая дата рождения"
             validDate.plusYears(18).isAfter(LocalDate.now()) -> "Вам мало лет"
-            else -> null
+            else -> null  //вернет null если дата введена в соответствии с шаблном и выполняются все условия
         }
     }
 
@@ -56,13 +59,14 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
      * Делаем это каждый раз при изменении, поскольку мы решили отображать полное состояние,
      * а не полагаться на состояние View
      */
-    private fun renderView() {
+    private fun renderView() {   //обновлялка viewState (синхронизация с WizardCache)
         _stateFR1.value = with(cache.data) {
             viewStateFR1(
                 name = name,
                 surName = surName,
                 data = dateString,
-                dataOK = name.isNotBlank() && surName.isNotBlank() && null == getDateError()
+                dataOK = name.isNotBlank() && surName.isNotBlank() && null == getDateError(),
+                dataError = getDateError(), //сообщение об ошибке ввода даты
             )
         }
     }
@@ -80,15 +84,24 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
     }
 
     fun setDate(value: String) {
-        if (value == dateString) return
+        if (value == dateString) return   //если дата отличается от пустой строки то
         dateString = value
         // Записываем дату только если она валидна
-        cache.data = cache.data.copy(bd = getValidDate())
+        cache.data = cache.data.copy(bd = getValidDate())   // запись если совпалает с шаблоном
         renderView()
     }
 
+//*********************************
+//в fragment во view загружаем состояние из viewModel
+//получаем данные из view
+//записываем полученные данные в WizardCache
+//из WizardCache записываем данные в viewModel
+//данные получаются везде одинаковые
+//*********************************
+}
 
-    // Потом сделай как ты хочешь. Я упрощу...
+
+// Потом сделай как ты хочешь. Я упрощу...
 //    @RequiresApi(Build.VERSION_CODES.O)
 //    fun setData(data: String?){
 //        valueFR1.data = data
@@ -121,7 +134,3 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
 //
 //
 //    }
-
-
-
-}

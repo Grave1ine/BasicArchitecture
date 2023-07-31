@@ -9,180 +9,31 @@
     android:clickable="true"
     android:focusable="true">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat4"
+
+    <com.google.android.material.chip.ChipGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="250dp"
+        app:chipSpacing="25dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        >
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/interesting1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-
-            />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/interesting2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-            android:layout_weight="3"
-
-            tools:ignore="MissingConstraints" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat3"
-        android:layout_width="match_parent"
-        android:layout_marginTop="3dp"
-        android:layout_height="wrap_content"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat5"
         tools:ignore="MissingConstraints">
 
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/interesting3"
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
+            app:chipText="Filter" />
 
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/interesting4"
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="3"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-
-            tools:ignore="MissingConstraints" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            app:chipText="Filter" />
 
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="3dp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat4"
-        tools:ignore="MissingConstraints">
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/interesting5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="3"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/interesting6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-
-            tools:ignore="MissingConstraints" />
-
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-
-        android:id="@+id/linearLayoutCompat2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat3"
-        tools:ignore="MissingConstraints">
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/interesting7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="3"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/interesting8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-
-            tools:ignore="MissingConstraints" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.chip.ChipGroup>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/go_to_FR4"
@@ -194,8 +45,7 @@
         android:textSize="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 

@@ -46,10 +46,11 @@ class Fragment1 : Fragment() {
 
         withBinding {
             dataModel.viewState.observe(viewLifecycleOwner) { state ->
-                goToFR2.isEnabled = state.dataOK  //должна блокировать или не блокировать кнопку
-                name.setTextKeepState(state.name.orEmpty())          // есть ли в этом смысл? наверно нет т.к editText
-                surName.setTextKeepState(state.surName.orEmpty())    // Ответ: и да, и нет. С точки зрения единого источника правды (модели) есть.
-                data.setTextKeepState(state.data.orEmpty())          // Кроме того, при возврате на этот экран, мы заполним его данными из визард-кеш
+                goToFR2.isEnabled = state.dataOK                     //должна блокировать или не блокировать кнопку
+                viewName.setTextKeepState(state.name.orEmpty())          // загрузка из viewModel элементов в view
+                viewSurName.setTextKeepState(state.surName.orEmpty())    //
+                viewData.setTextKeepState(state.data.orEmpty())          //
+                errorMessage.setTextKeepState(state.dataError.orEmpty())
             }
 
             goToFR2.setOnClickListener{
@@ -58,14 +59,14 @@ class Fragment1 : Fragment() {
                 findNavController().navigate(R.id.action_fragment1_to_fragment2)
             }
 
-            name.doOnTextChanged { text, _, _, _ ->
+            viewName.doOnTextChanged { text, _, _, _ ->  //какая то стандартная лямбда
                 // В модель записываем каждое изменение текста
-                dataModel.setName(text.toString())  // запись имени в модель?
+                dataModel.setName(text.toString())
             }
-            surName.doOnTextChanged { text, _, _, _ ->
+            viewSurName.doOnTextChanged { text, _, _, _ ->
                 dataModel.setSurname(text.toString())
             }
-            data.doOnTextChanged { text, _, _, _ ->
+            viewData.doOnTextChanged { text, _, _, _ ->
                 dataModel.setDate(text.toString())
             }
         }

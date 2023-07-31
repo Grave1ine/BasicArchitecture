@@ -21,7 +21,21 @@ interface WizardCache {
  * Общие данные
  */
 data class WizardData(
+
+//Fragment1
     val name: String = "",
     val surName: String= "",
-    val bd: LocalDate? = null
+    val bd: LocalDate? = null,
+
+//*************************************
+
+//Fragment2
+    var country: String = "",
+    var city: String = "",
+    var address: String = "",
+
+//*************************************
+
+//Fragment3
+
 )
