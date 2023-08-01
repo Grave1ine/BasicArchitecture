@@ -65,7 +65,7 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
                 name = name,
                 surName = surName,
                 data = dateString,
-                dataOK = name.isNotBlank() && surName.isNotBlank() && null == getDateError(),
+                dataOK = name.isNotBlank() && surName.isNotBlank() && null == getDateError(), //если все ок вернет true
                 dataError = getDateError(), //сообщение об ошибке ввода даты
             )
         }
