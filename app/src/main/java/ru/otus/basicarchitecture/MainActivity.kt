@@ -15,6 +15,6 @@ class MainActivity : AppCompatActivity() {
        setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.place_fragment1, Fragment1()).commit()
+            .add(R.id.active_fragment, Fragment1()).commit()
     }
 }

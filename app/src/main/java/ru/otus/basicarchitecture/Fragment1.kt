@@ -20,13 +20,12 @@ class Fragment1 : Fragment() {
         return inflater.inflate(R.layout.fragment_1, container, false)
     }
 
-    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<Button>(R.id.go_to_FR2).setOnClickListener {
-            childFragmentManager
+            parentFragmentManager
                 .beginTransaction()
-                .add(R.id.place_fragment2, Fragment2())
+                .replace(R.id.active_fragment, Fragment2())
                 .addToBackStack(null)
                 .commit()
         }

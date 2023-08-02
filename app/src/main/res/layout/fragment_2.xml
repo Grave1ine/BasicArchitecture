@@ -10,18 +10,6 @@
     android:clickable="true"
     android:focusable="true">
 
-
-<!--    <FrameLayout-->
-<!--        android:id="@+id/place_fragment3"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:clickable="true"-->
-<!--        android:focusable="true"-->
-<!--        tools:ignore="MissingConstraints">-->
-<!--    </FrameLayout>-->
-
-
-
     <TextView
         android:id="@+id/textViewFR2"
         android:layout_width="wrap_content"
@@ -37,5 +25,15 @@
         tools:ignore="MissingConstraints" />
 
 
+    <Button
+        android:id="@+id/go_to_FR1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFR2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
