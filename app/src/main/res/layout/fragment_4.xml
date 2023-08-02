@@ -102,194 +102,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat4"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="10dp"
+        android:text="Interests"
+        android:textColor="@color/black"
+        android:textSize="35dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/interesting1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-            android:visibility="invisible"
-            android:gravity="center"
-            android:textColor="@color/black"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/interesting2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="3"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:visibility="invisible"
-            tools:ignore="MissingConstraints" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat3"
-        android:layout_width="match_parent"
-        android:layout_marginTop="3dp"
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_marginStart="3dp"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        tools:text="Interest list"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat5"
-        tools:ignore="MissingConstraints">
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/interesting5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:visibility="invisible"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/interesting6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="3"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:visibility="invisible"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="3dp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat4"
-        tools:ignore="MissingConstraints">
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/interesting3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="3"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:visibility="invisible"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/interesting4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:visibility="invisible"
-            tools:ignore="MissingConstraints" />
-
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="3dp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat3"
-        tools:ignore="MissingConstraints">
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/interesting7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="3"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:visibility="invisible"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/interesting8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/zima_blue"
-            android:text="betta"
-            android:textAllCaps="false"
-            android:textSize="35dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:visibility="invisible"
-            tools:ignore="MissingConstraints" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
