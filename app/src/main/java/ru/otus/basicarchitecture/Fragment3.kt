@@ -65,7 +65,7 @@ class Fragment3 : Fragment() {
 
     }
 
-    private fun Fragment3Binding.createChip(name: String, checked: Boolean): Chip {
+    private fun Fragment3Binding.createChip(name: String, checked: Boolean): Chip { //функция расширения
         val chip = Chip(ContextThemeWrapper(root.context, R.style.Theme_BasicArchitecture))
         chip.text = name
         chip.isCheckable = true

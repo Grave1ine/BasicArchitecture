@@ -57,7 +57,7 @@ class Fragment2 : Fragment() {
                 findNavController().navigate(R.id.action_fragment2_to_fragment3)
             }
 
-            viewCountry.doOnTextChanged { text, _, _, _ ->  //какая то стандартная лямбда
+            viewCountry.doOnTextChanged { text, _, _, _ ->
                 // В модель записываем каждое изменение текста
                 dataModel.setCountry(text.toString())
             }

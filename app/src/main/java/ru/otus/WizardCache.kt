@@ -38,8 +38,15 @@ data class WizardData(
 
 //Fragment3
     val tags: Map<String, Boolean> = mapOf(
-        "Водка" to false,
-        "Пиво" to false,
-        "Вино" to false
+        "Kotlin" to false,
+        "Android" to false,
+        "Swift" to false,
+        "Ios" to false,
+        "C/C++" to false,
+        "Java" to false,
+        "Ruby" to false,
+
     )
+
 )
+
