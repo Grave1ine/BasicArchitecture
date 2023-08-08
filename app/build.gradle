@@ -1,6 +1,15 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+}
+
+kotlin {
+    jvmToolchain {
+        (System.getenv("JAVA_HOME") ?: "/path/to/jdk11") as File
+    }
 }
 
 android {
@@ -31,12 +40,20 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions.jvmTarget = '1.8'
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
 }
 
 dependencies {
+
+    implementation 'com.google.dagger:hilt-android:2.46.1'
+    kapt 'com.google.dagger:hilt-compiler:2.46.1'
 
     implementation 'androidx.navigation:navigation-runtime-ktx:2.6.0'
     def nav_version = "2.6.0"

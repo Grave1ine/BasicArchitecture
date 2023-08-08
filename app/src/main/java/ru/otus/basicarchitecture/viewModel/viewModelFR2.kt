@@ -4,11 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.distinctUntilChanged
+import dagger.hilt.android.lifecycle.HiltViewModel
 import ru.otus.WizardCache
 import ru.otus.basicarchitecture.viewState.viewStateFR1
 import ru.otus.basicarchitecture.viewState.viewStateFR2
+import javax.inject.Inject
 
-open class viewModelFR2 @JvmOverloads constructor(val cache: WizardCache = WizardCache.Impl): ViewModel() {
+@HiltViewModel
+open class viewModelFR2 @Inject constructor(var cache: WizardCache): ViewModel() {
 
     val _stateFR2: MutableLiveData<viewStateFR2> = MutableLiveData<viewStateFR2>(  //хранит состояние (viewModel)
         viewStateFR2() // Начальное значение
@@ -18,7 +21,7 @@ open class viewModelFR2 @JvmOverloads constructor(val cache: WizardCache = Wizar
     //для обращений снаружи(ativity/frahment)
 
     private fun renderView() {   //обновлялка viewState (синхронизация с WizardCache)
-        _stateFR2.value = with(cache.data) {
+        _stateFR2.value = with(cache) {
             viewStateFR2(
             //  viewStateFR2 = WizardCache
                 country = country,
@@ -30,20 +33,20 @@ open class viewModelFR2 @JvmOverloads constructor(val cache: WizardCache = Wizar
     }
 
     fun setCountry(value: String) {
-        if (value == cache.data.country) return
-        cache.data = cache.data.copy(country = value)
+        if (value == cache.country) return
+        cache = cache.copy(country = value)
         renderView()
     }
 
     fun setCity(value: String) {
-        if (value == cache.data.city) return
-        cache.data = cache.data.copy(city = value)
+        if (value == cache.city) return
+        cache = cache.copy(city = value)
         renderView()
     }
 
     fun setAddress(value: String) {
-        if (value == cache.data.address) return
-        cache.data = cache.data.copy(address = value)
+        if (value == cache.address) return
+        cache = cache.copy(address = value)
         renderView()
     }
 

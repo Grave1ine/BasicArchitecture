@@ -10,9 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 import ru.otus.basicarchitecture.databinding.Fragment3Binding
 import ru.otus.basicarchitecture.viewModel.viewModelFR3
 
+@AndroidEntryPoint
 class Fragment3 : Fragment() {
 
     private var binding: Fragment3Binding? = null

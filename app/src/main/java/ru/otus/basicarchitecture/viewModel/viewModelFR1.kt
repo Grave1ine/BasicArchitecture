@@ -6,17 +6,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.distinctUntilChanged
+import dagger.hilt.android.lifecycle.HiltViewModel
 import ru.otus.WizardCache
 import ru.otus.basicarchitecture.viewState.viewStateFR1
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import javax.inject.Inject
 
 /**
  * Модель, куда мы инжектим из хилт общую часть
  * Данные нашего визарда будем копить там
  * Переделать конструктор на хилт
  */
-open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = WizardCache.Impl): ViewModel() {    //хранит состояние вьюх
+@HiltViewModel
+open class viewModelFR1 @Inject constructor(var cache: WizardCache): ViewModel() {    //хранит состояние вьюх
+    //val cache: WizardCache = WizardCache.Impl
 
     // Определяет состояние вью
     val _stateFR1: MutableLiveData<viewStateFR1> = MutableLiveData<viewStateFR1>(
@@ -60,7 +64,7 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
      * а не полагаться на состояние View
      */
     private fun renderView() {   //обновлялка viewState (синхронизация с WizardCache)
-        _stateFR1.value = with(cache.data) {
+        _stateFR1.value = with(cache) {
             viewStateFR1(
                 name = name,
                 surName = surName,
@@ -72,14 +76,14 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
     }
 
     fun setName(value: String) {
-        if (value == cache.data.name) return
-        cache.data = cache.data.copy(name = value)
+        if (value == cache.name) return
+        cache = cache.copy(name = value)
         renderView()
     }
 
     fun setSurname(value: String) {
-        if (value == cache.data.surName) return
-        cache.data = cache.data.copy(surName = value)
+        if (value == cache.surName) return
+        cache = cache.copy(surName = value)
         renderView()
     }
 
@@ -87,7 +91,7 @@ open class viewModelFR1 @JvmOverloads constructor(val cache: WizardCache = Wizar
         if (value == dateString) return   //если дата отличается от пустой строки то
         dateString = value
         // Записываем дату только если она валидна
-        cache.data = cache.data.copy(bd = getValidDate())   // запись если совпалает с шаблоном
+        cache = cache.copy(bd = getValidDate())   // запись если совпалает с шаблоном
         renderView()
     }
 

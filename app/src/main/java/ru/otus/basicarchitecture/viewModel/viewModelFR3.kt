@@ -4,31 +4,34 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.distinctUntilChanged
+import dagger.hilt.android.lifecycle.HiltViewModel
 import ru.otus.WizardCache
 import ru.otus.basicarchitecture.viewState.viewStateFR3
+import javax.inject.Inject
 
-open class viewModelFR3 @JvmOverloads constructor(val cache: WizardCache = WizardCache.Impl): ViewModel() {
+@HiltViewModel
+open class viewModelFR3 @Inject constructor(var cache: WizardCache): ViewModel() {
 
     val _stateFR3: MutableLiveData<viewStateFR3> = MutableLiveData<viewStateFR3>(  //хранит состояние (viewModel)
-        viewStateFR3(cache.data.tags) // Начальное значение
+        viewStateFR3(cache.tags) // Начальное значение
     )
 
     val viewState: LiveData<viewStateFR3> get() = _stateFR3.distinctUntilChanged()
 
     private fun renderView() {   //обновлялка viewState (синхронизация с WizardCache)
-        _stateFR3.value = with(cache.data) {
+        _stateFR3.value = with(cache) {
             viewStateFR3(tags)
         }
     }
 
     fun toggleTag(name: String) {
-        val currentValue = cache.data.tags[name]
+        val currentValue = cache.tags[name]
         if (null == currentValue) {
             // Проверяем, что идем по заданным тэгам, а не от балды
             return
         }
         // Меняем значение на противоположное
-        cache.data = cache.data.copy(tags = cache.data.tags.plus(name to currentValue.not()))
+        cache = cache.copy(tags = cache.tags.plus(name to currentValue.not()))
         renderView()
     }
 }

@@ -9,10 +9,13 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import ru.otus.basicarchitecture.databinding.Fragment1Binding
+
 import ru.otus.basicarchitecture.viewModel.viewModelFR1
 
 
+@AndroidEntryPoint
 class Fragment1 : Fragment() {
 
     private var binding: Fragment1Binding? = null
