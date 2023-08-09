@@ -10,7 +10,7 @@ import ru.otus.basicarchitecture.viewState.viewStateFR3
 import javax.inject.Inject
 
 @HiltViewModel
-open class viewModelFR3 @Inject constructor(var cache: WizardCache): ViewModel() {
+open class viewModelFR3 @Inject constructor(private val cache: WizardCache): ViewModel() {
 
     val _stateFR3: MutableLiveData<viewStateFR3> = MutableLiveData<viewStateFR3>(  //хранит состояние (viewModel)
         viewStateFR3(cache.tags) // Начальное значение
@@ -31,7 +31,7 @@ open class viewModelFR3 @Inject constructor(var cache: WizardCache): ViewModel()
             return
         }
         // Меняем значение на противоположное
-        cache = cache.copy(tags = cache.tags.plus(name to currentValue.not()))
+        cache.tags = cache.tags.plus(name to currentValue.not())
         renderView()
     }
 }
