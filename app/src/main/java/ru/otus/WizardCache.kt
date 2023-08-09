@@ -4,24 +4,7 @@ import dagger.hilt.android.scopes.ActivityRetainedScoped
 import java.time.LocalDate
 import javax.inject.Inject
 
-/**
- * Общие данные для всех экранов
- */
-//interface WizardCache {
-//    var data: WizardData
-//
-//    /**
-//     * Потом переделать на хилт с ActivityRetainedScope
-//     */
-//    object Impl : WizardCache {
-//        // Начальное состояние
-//        override var data: WizardData = WizardData()
-//    }
-//}
 
-/**
- * Общие данные
- */
 @ActivityRetainedScoped //долго живет(иначе не переживет поворот?)
 class WizardCache @Inject constructor() {
 
