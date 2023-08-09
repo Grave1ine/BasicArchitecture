@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import ru.otus.WizardCache
 import ru.otus.basicarchitecture.databinding.Fragment4Binding
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class Fragment4 : Fragment() {
 
-    private var  cache: WizardCache = WizardCache.Impl
+    @Inject
+    lateinit var  cache: WizardCache
 
     private var binding: Fragment4Binding? = null
 
@@ -42,12 +44,12 @@ class Fragment4 : Fragment() {
 
         withBinding {
 
-            textView2.setTextKeepState(cache.data.name)
-            textView4.setTextKeepState(cache.data.surName)
-            textView6.setTextKeepState(cache.data.bd.toString())
-            textView8.setTextKeepState("${cache.data.country} ${cache.data.city} ${cache.data.address}")
+            textView2.setTextKeepState(cache.name)
+            textView4.setTextKeepState(cache.surName)
+            textView6.setTextKeepState(cache.bd.toString())
+            textView8.setTextKeepState("${cache.country} ${cache.city} ${cache.address}")
 
-            textView10.setText(cache.data.tags.filterValues { it }.keys.joinToString())
+            textView10.setText(cache.tags.filterValues { it }.keys.joinToString())
         }
 
 

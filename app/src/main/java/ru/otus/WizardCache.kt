@@ -1,7 +1,7 @@
 package ru.otus
 
-import java.time.LocalDate
 import dagger.hilt.android.scopes.ActivityRetainedScoped
+import java.time.LocalDate
 import javax.inject.Inject
 
 /**
@@ -23,19 +23,19 @@ import javax.inject.Inject
  * Общие данные
  */
 @ActivityRetainedScoped //долго живет(иначе не переживет поворот?)
-  data class WizardCache @Inject constructor(
+class WizardCache @Inject constructor() {
 
     //Fragment1
-    var name: String = "",
-    var surName: String = "",
-    var bd: LocalDate? = null,
+    var name: String = ""
+    var surName: String = ""
+    var bd: LocalDate? = null
 
 //*************************************
 
     //Fragment2
-    var country: String = "",
-    var city: String = "",
-    var address: String = "",
+    var country: String = ""
+    var city: String = ""
+    var address: String = ""
 
 //*************************************
 
@@ -50,6 +50,4 @@ import javax.inject.Inject
         "Ruby" to false,
 
         )
-
-    )
-
+}

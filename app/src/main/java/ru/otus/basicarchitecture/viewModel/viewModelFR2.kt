@@ -6,12 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.distinctUntilChanged
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ru.otus.WizardCache
-import ru.otus.basicarchitecture.viewState.viewStateFR1
 import ru.otus.basicarchitecture.viewState.viewStateFR2
 import javax.inject.Inject
 
 @HiltViewModel
-open class viewModelFR2 @Inject constructor(var cache: WizardCache): ViewModel() {
+open class viewModelFR2 @Inject constructor(private val cache: WizardCache): ViewModel() {
 
     val _stateFR2: MutableLiveData<viewStateFR2> = MutableLiveData<viewStateFR2>(  //хранит состояние (viewModel)
         viewStateFR2() // Начальное значение
@@ -34,19 +33,19 @@ open class viewModelFR2 @Inject constructor(var cache: WizardCache): ViewModel()
 
     fun setCountry(value: String) {
         if (value == cache.country) return
-        cache = cache.copy(country = value)
+        cache.country = value
         renderView()
     }
 
     fun setCity(value: String) {
         if (value == cache.city) return
-        cache = cache.copy(city = value)
+        cache.city = value
         renderView()
     }
 
     fun setAddress(value: String) {
         if (value == cache.address) return
-        cache = cache.copy(address = value)
+        cache.address = value
         renderView()
     }
 

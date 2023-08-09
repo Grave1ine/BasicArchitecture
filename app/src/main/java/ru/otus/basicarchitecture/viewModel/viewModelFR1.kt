@@ -1,7 +1,5 @@
 package ru.otus.basicarchitecture.viewModel
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,7 +17,7 @@ import javax.inject.Inject
  * Переделать конструктор на хилт
  */
 @HiltViewModel
-open class viewModelFR1 @Inject constructor(var cache: WizardCache): ViewModel() {    //хранит состояние вьюх
+open class viewModelFR1 @Inject constructor(private val cache: WizardCache): ViewModel() {    //хранит состояние вьюх
     //val cache: WizardCache = WizardCache.Impl
 
     // Определяет состояние вью
@@ -77,13 +75,13 @@ open class viewModelFR1 @Inject constructor(var cache: WizardCache): ViewModel()
 
     fun setName(value: String) {
         if (value == cache.name) return
-        cache = cache.copy(name = value)
+        cache.name = value
         renderView()
     }
 
     fun setSurname(value: String) {
         if (value == cache.surName) return
-        cache = cache.copy(surName = value)
+        cache.surName = value
         renderView()
     }
 
@@ -91,7 +89,7 @@ open class viewModelFR1 @Inject constructor(var cache: WizardCache): ViewModel()
         if (value == dateString) return   //если дата отличается от пустой строки то
         dateString = value
         // Записываем дату только если она валидна
-        cache = cache.copy(bd = getValidDate())   // запись если совпалает с шаблоном
+        cache.bd = getValidDate()   // запись если совпалает с шаблоном
         renderView()
     }
 
