@@ -1,6 +1,8 @@
 package ru.otus
 
 import dagger.hilt.android.scopes.ActivityRetainedScoped
+import retrofit2.Response
+import ru.otus.basicarchitecture.internetAdrdess.AddressAnswer
 import java.time.LocalDate
 import javax.inject.Inject
 
@@ -17,8 +19,12 @@ class WizardCache @Inject constructor() {
 
     //Fragment2
     var country: String = ""
-    var city: String = ""
-    var address: String = ""
+    var variantCountry: String = ""
+
+
+    var TEST: String = ""
+//    var city: String = ""
+//    var address: String = ""
 
 //*************************************
 
