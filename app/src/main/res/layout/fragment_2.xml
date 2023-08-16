@@ -28,37 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Country"
-            android:textColor="@color/black"
-            android:textSize="35dp"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/viewCity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="City"
-            android:textColor="@color/black"
-            android:textSize="35dp"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/viewAdress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="Adress"
             android:textColor="@color/black"
             android:textSize="35dp"
@@ -69,6 +38,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
+
+<!--        <androidx.appcompat.widget.AppCompatEditText-->
+<!--            android:id="@+id/viewCity"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="text"-->
+<!--            android:hint="City"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="35dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:gravity="center"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:ignore="MissingConstraints" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatEditText-->
+<!--            android:id="@+id/viewAdress"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Adress"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="35dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:gravity="center"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:ignore="MissingConstraints" />-->
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

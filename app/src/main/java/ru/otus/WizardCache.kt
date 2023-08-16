@@ -17,8 +17,8 @@ class WizardCache @Inject constructor() {
 
     //Fragment2
     var country: String = ""
-    var city: String = ""
-    var address: String = ""
+//    var city: String = ""
+//    var address: String = ""
 
 //*************************************
 

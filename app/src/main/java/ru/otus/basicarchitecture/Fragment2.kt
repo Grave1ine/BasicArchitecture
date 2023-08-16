@@ -48,8 +48,8 @@ class Fragment2 : Fragment() {
             // загрузка из viewModel элементов в view
             dataModel.viewState.observe(viewLifecycleOwner) { state ->
                 viewCountry.setTextKeepState(state.country.orEmpty())
-                viewCity.setTextKeepState(state.city.orEmpty())
-                viewAdress.setTextKeepState(state.address.orEmpty())
+//                viewCity.setTextKeepState(state.city.orEmpty())
+//                viewAdress.setTextKeepState(state.address.orEmpty())
             }
 
             goToFR3.setOnClickListener{
@@ -62,16 +62,14 @@ class Fragment2 : Fragment() {
                 // В модель записываем каждое изменение текста
                 dataModel.setCountry(text.toString())
             }
-            viewCity.doOnTextChanged { text, _, _, _ ->
-                dataModel.setCity(text.toString())
-            }
-            viewAdress.doOnTextChanged { text, _, _, _ ->
-                dataModel.setAddress(text.toString())
-            }
+//            viewCity.doOnTextChanged { text, _, _, _ ->
+//                dataModel.setCity(text.toString())
+//            }
+//            viewAdress.doOnTextChanged { text, _, _, _ ->
+//                dataModel.setAddress(text.toString())
+//            }
         }
 
     }
-
-
 
 }
