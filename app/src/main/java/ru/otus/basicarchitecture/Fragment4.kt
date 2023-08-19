@@ -47,7 +47,7 @@ class Fragment4 : Fragment() {
             textView2.setTextKeepState(cache.name)
             textView4.setTextKeepState(cache.surName)
             textView6.setTextKeepState(cache.bd.toString())
-            textView8.setTextKeepState("${cache.country}")  //${cache.city} ${cache.address}
+            textView8.setTextKeepState("${cache.address}")  //${cache.city} ${cache.address}
 
             textView10.setText(cache.tags.filterValues { it }.keys.joinToString())
         }

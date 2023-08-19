@@ -6,94 +6,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment2"
-    android:clickable="true"
-    android:focusable="true">
+    android:padding="20dp">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat"
+    <TextView
+        android:id="@+id/testView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="160dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:gravity="center"
+        android:hint="test"
+        android:textSize="35dp"
+        tools:layout_editor_absoluteY="38dp" />
 
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/viewCountry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:hint="Adress"
-            android:inputType="textMultiLine"
-            android:textColor="@color/black"
-            android:textSize="35dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-
-<!--        <androidx.appcompat.widget.AppCompatEditText-->
-<!--            android:id="@+id/viewCity"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:inputType="text"-->
-<!--            android:hint="City"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="35dp"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:gravity="center"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            tools:ignore="MissingConstraints" />-->
-
-<!--        <androidx.appcompat.widget.AppCompatEditText-->
-<!--            android:id="@+id/viewAdress"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Adress"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="35dp"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:gravity="center"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            tools:ignore="MissingConstraints" />-->
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <AutoCompleteTextView
+        android:id="@+id/LIST"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:dropDownHeight="200dp"
+        android:gravity="center"
+        android:hint="adress"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/go_to_FR3"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/inrernetAdress"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+        tools:ignore="LabelFor,MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/go_to_FR3"
