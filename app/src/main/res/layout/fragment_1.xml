@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragment1"
     android:background="@color/white"
-    android:clickable="true"
-    android:focusable="true"
     >
 
     <androidx.appcompat.widget.LinearLayoutCompat
